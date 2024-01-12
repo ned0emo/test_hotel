@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test_hotel/hotel/models/about_dto.dart';
 
@@ -10,7 +11,7 @@ class HotelDTO {
   final String adress;
   final int minimalPrice;
   final String priceForIt;
-  final double rating;
+  final int rating;
   final String ratingName;
   final List<String> imageUrls;
   final AboutDTO aboutTheHotel;
@@ -31,4 +32,14 @@ class HotelDTO {
       _$HotelDTOFromJson(json);
 
   Map<String, dynamic> toJson() => _$HotelDTOToJson(this);
+
+  String get formattedPrice {
+    if (minimalPrice < 1000) return minimalPrice.toString();
+
+    return NumberFormat("#,###").format(minimalPrice).replaceAll(',', ' ');
+  }
+
+  String get formattedPriceForIt {
+    return priceForIt.toLowerCase();
+  }
 }
