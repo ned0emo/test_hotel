@@ -4,7 +4,7 @@ import 'package:test_hotel/hotel/models/about_dto.dart';
 
 part 'hotel_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class HotelDTO {
   final int id;
   final String name;
@@ -36,7 +36,7 @@ class HotelDTO {
   String get formattedPrice {
     if (minimalPrice < 1000) return minimalPrice.toString();
 
-    return NumberFormat("#,###").format(minimalPrice).replaceAll(',', ' ');
+    return '${NumberFormat("#,###").format(minimalPrice).replaceAll(',', ' ')} ₽';
   }
 
   String get formattedPriceForIt {

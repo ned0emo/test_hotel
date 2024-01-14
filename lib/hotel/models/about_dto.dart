@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'about_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class AboutDTO {
   final String description;
   final List<String> peculiarities;

@@ -4,8 +4,17 @@ import 'package:test_hotel/hotel/bloc/hotel_bloc.dart';
 import 'package:test_hotel/hotel/hotel_repository.dart';
 import 'package:test_hotel/hotel/view/about_card.dart';
 import 'package:test_hotel/hotel/view/main_card.dart';
+import 'package:test_hotel/room/view/room_page.dart';
 
 class HotelPage extends StatefulWidget {
+  static const String routeName = '/hotel';
+
+  static Route route() {
+    return MaterialPageRoute(
+        builder: (_) => const HotelPage(),
+        settings: const RouteSettings(name: routeName));
+  }
+
   const HotelPage({super.key});
 
   @override
@@ -41,11 +50,10 @@ class HotelPageState extends State<HotelPage> {
             children: [
               Expanded(
                 child: ListView(
-                  primary: true,
                   children: [
                     MainCard(state: state),
                     const SizedBox(height: 8),
-                   AboutCard(state: state),
+                    AboutCard(state: state),
                     const SizedBox(height: 8),
                   ],
                 ),
@@ -57,7 +65,12 @@ class HotelPageState extends State<HotelPage> {
                   vertical: 12,
                 ),
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(
+                      RoomPage.routeName,
+                      arguments: state.hotel.name,
+                    );
+                  },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

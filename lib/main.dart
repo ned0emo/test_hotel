@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_hotel/core/app_router.dart';
 import 'package:test_hotel/core/host_repository.dart';
 import 'package:test_hotel/hotel/hotel_repository.dart';
 import 'package:test_hotel/hotel/view/hotel_page.dart';
+import 'package:test_hotel/room/room_repository.dart';
 import 'package:test_hotel/themes/primary.dart';
 
 void main() {
@@ -22,11 +24,15 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => HotelRepository(context.read<HostRepository>()),
         ),
+        RepositoryProvider(
+          create: (context) => RoomRepository(context.read<HostRepository>()),
+        )
       ],
       child: MaterialApp(
+        initialRoute: HotelPage.routeName,
+        onGenerateRoute: AppRouter.onGenerateRoute,
         title: 'Отели',
         theme: PrimaryTheme().data,
-        home: const HotelPage(),
       ),
     );
   }

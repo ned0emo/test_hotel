@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TagContainer extends StatelessWidget {
+class ColoredContainer extends StatelessWidget {
   final IconData? iconData;
   final String text;
   final Color textColor;
   final Color backColor;
 
-  const TagContainer({
+  const ColoredContainer({
     super.key,
     required this.text,
     required this.textColor,

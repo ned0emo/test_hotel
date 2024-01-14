@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_hotel/hotel/bloc/hotel_bloc.dart';
-import 'package:test_hotel/hotel/view/tag_container.dart';
+import 'package:test_hotel/core/view/tag_container.dart';
 
 class AboutCard extends StatelessWidget {
   final HotelLoaded state;
@@ -32,7 +32,7 @@ class AboutCard extends StatelessWidget {
               spacing: 10,
               children: List.generate(
                 state.hotel.aboutTheHotel.peculiarities.length,
-                (index) => TagContainer(
+                (index) => ColoredContainer(
                     text: state.hotel.aboutTheHotel.peculiarities[index],
                     textColor: const Color(0xFF828796),
                     backColor: const Color(0xFFFBFBFC)),

@@ -12,10 +12,11 @@ HotelDTO _$HotelDTOFromJson(Map<String, dynamic> json) => HotelDTO(
       adress: json['adress'] as String,
       minimalPrice: json['minimal_price'] as int,
       priceForIt: json['price_for_it'] as String,
-      rating: (json['rating'] as num).toInt(),
+      rating: json['rating'] as int,
       ratingName: json['rating_name'] as String,
-      imageUrls:
-          (json['image_urls'] as List<dynamic>).map((e) => e as String).toList(),
+      imageUrls: (json['image_urls'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       aboutTheHotel:
           AboutDTO.fromJson(json['about_the_hotel'] as Map<String, dynamic>),
     );
