@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_hotel/booking/booking_repository.dart';
 import 'package:test_hotel/core/app_router.dart';
 import 'package:test_hotel/core/host_repository.dart';
 import 'package:test_hotel/hotel/hotel_repository.dart';
@@ -26,6 +27,10 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider(
           create: (context) => RoomRepository(context.read<HostRepository>()),
+        ),
+        RepositoryProvider(
+          create: (context) =>
+              BookingRepository(context.read<HostRepository>()),
         )
       ],
       child: MaterialApp(

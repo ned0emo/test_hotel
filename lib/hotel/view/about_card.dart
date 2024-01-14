@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_hotel/core/view/title_text.dart';
 import 'package:test_hotel/hotel/bloc/hotel_bloc.dart';
 import 'package:test_hotel/core/view/tag_container.dart';
 
@@ -22,10 +23,7 @@ class AboutCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Об отеле',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-            ),
+            const TitleText(text: 'Об отеле'),
             const SizedBox(height: 16),
             Wrap(
               runSpacing: 10,

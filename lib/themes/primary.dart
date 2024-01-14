@@ -36,7 +36,7 @@ class PrimaryTheme extends ThemeTemplate {
         elevation: 0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
       ),
       appBarTheme: const AppBarTheme(backgroundColor: Colors.white));

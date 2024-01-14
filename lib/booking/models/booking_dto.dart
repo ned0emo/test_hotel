@@ -42,4 +42,25 @@ class BookingDTO {
       _$BookingDTOFromJson(json);
 
   Map<String, dynamic> toJson() => _$BookingDTOToJson(this);
+
+  String get dates => '$tourDateStart - $tourDateStop';
+
+  String get nights {
+    String nights = numberOfNights.toString();
+
+    if (nights.endsWith('1') && !nights.endsWith('11')) {
+      return '$nights ночь';
+    }
+
+    if ((nights.endsWith('2') ||
+            nights.endsWith('3') ||
+            nights.endsWith('4')) &&
+        !nights.endsWith('12') &&
+        !nights.endsWith('13') &&
+        !nights.endsWith('14')) {
+      return '$nights ночи';
+    }
+
+    return '$nights ночей';
+  }
 }

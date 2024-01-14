@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_hotel/core/view/image_carousel.dart';
 import 'package:test_hotel/core/view/tag_container.dart';
+import 'package:test_hotel/core/view/title_text.dart';
 import 'package:test_hotel/hotel/bloc/hotel_bloc.dart';
 
 class MainCard extends StatelessWidget {
@@ -11,6 +12,9 @@ class MainCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -26,13 +30,7 @@ class MainCard extends StatelessWidget {
                 iconData: Icons.star,
               ),
             ),
-            Text(
-              state.hotel.name,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            TitleText(text: state.hotel.name),
             const SizedBox(height: 5),
             Text(
               state.hotel.adress,

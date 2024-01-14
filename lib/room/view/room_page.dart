@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_hotel/booking/view/booking_page.dart';
 import 'package:test_hotel/core/view/image_carousel.dart';
 import 'package:test_hotel/core/view/tag_container.dart';
+import 'package:test_hotel/core/view/title_text.dart';
 import 'package:test_hotel/room/bloc/room_bloc.dart';
 import 'package:test_hotel/room/models/room_dto.dart';
 import 'package:test_hotel/room/room_repository.dart';
@@ -25,7 +27,14 @@ class RoomPage extends StatelessWidget {
       create: (context) =>
           RoomBloc(context.read<RoomRepository>())..add(LoadRoom()),
       child: Scaffold(
-        appBar: AppBar(title: Text(hotelName), centerTitle: true),
+        appBar: AppBar(
+          title: Text(hotelName),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
         body: _body(),
       ),
     );
@@ -40,7 +49,7 @@ class RoomPage extends StatelessWidget {
 
         if (state is RoomLoaded) {
           return ListView(
-            children: state.rooms.map((e) => _roomCard(e)).toList(),
+            children: state.rooms.map((e) => _roomCard(e, context)).toList(),
           );
         }
 
@@ -53,7 +62,7 @@ class RoomPage extends StatelessWidget {
     );
   }
 
-  Widget _roomCard(RoomDTO room) {
+  Widget _roomCard(RoomDTO room, BuildContext context) {
     return Card(
       margin: const EdgeInsets.only(top: 10),
       child: Padding(
@@ -63,13 +72,7 @@ class RoomPage extends StatelessWidget {
           children: [
             ImageCarousel(imgUrls: room.imageUrls),
             const SizedBox(height: 16),
-            Text(
-              room.name,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            TitleText(text: room.name),
             const SizedBox(height: 16),
             Wrap(
               runSpacing: 10,
@@ -145,7 +148,9 @@ class RoomPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             FilledButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(BookingPage.routeName);
+              },
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

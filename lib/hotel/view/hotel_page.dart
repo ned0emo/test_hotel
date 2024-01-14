@@ -29,9 +29,9 @@ class HotelPageState extends State<HotelPage> {
           HotelBloc(context.read<HotelRepository>())..add(LoadHotel()),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
           title: const Text("Отель"),
           centerTitle: true,
+          leading: const SizedBox(),
         ),
         body: _body(),
       ),

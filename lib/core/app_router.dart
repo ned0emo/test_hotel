@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_hotel/booking/view/booking_page.dart';
 import 'package:test_hotel/hotel/view/hotel_page.dart';
 import 'package:test_hotel/room/view/room_page.dart';
 
@@ -9,6 +10,8 @@ class AppRouter {
         return HotelPage.route();
       case RoomPage.routeName:
         return RoomPage.route(settings.arguments as String);
+      case BookingPage.routeName:
+        return BookingPage.route();
       default:
         return _errorRoute();
     }
