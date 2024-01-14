@@ -5,9 +5,10 @@ class PrimaryTheme extends ThemeTemplate {
   @override
   ThemeData get data => ThemeData(
         colorScheme: ColorScheme.light(
-          primary: Colors.deepOrange,
+          primary: const Color(0xFF0D72FF),
           surface: Colors.grey[100] ?? Colors.white,
           background: Colors.grey[100] ?? Colors.white,
+          surfaceTint: Colors.transparent,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -18,20 +19,17 @@ class PrimaryTheme extends ThemeTemplate {
             ),
           ),
         ),
-        cardTheme: const CardTheme(surfaceTintColor: Colors.white),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: Colors.black87,
           ),
         ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
+        filledButtonTheme: FilledButtonThemeData(
           style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.black,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
           ),
-        ),
-        tabBarTheme: const TabBarTheme(labelColor: Colors.black87),
-        snackBarTheme: SnackBarThemeData(
-          backgroundColor: Colors.grey[800],
         ),
       );
 }
