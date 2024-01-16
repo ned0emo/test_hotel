@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:test_hotel/booking/models/booking_dto.dart';
 
-class InfoTab extends StatelessWidget {
+class BookingDataCard extends StatelessWidget {
   final BookingDTO booking;
   final double width;
 
-  const InfoTab({super.key, required this.booking, required this.width});
+  const BookingDataCard({super.key, required this.booking, required this.width});
 
   @override
   Widget build(BuildContext context) {

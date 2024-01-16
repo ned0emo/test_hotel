@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'booking_dto.g.dart';
@@ -62,5 +63,30 @@ class BookingDTO {
     }
 
     return '$nights ночей';
+  }
+
+  String get formattedTourPrice {
+    if (tourPrice < 1000) return '${tourPrice.toString()} ₽';
+
+    return '${NumberFormat("#,###").format(tourPrice).replaceAll(',', ' ')} ₽';
+  }
+
+  String get formattedFuelCharge {
+    if (fuelCharge < 1000) return '${fuelCharge.toString()} ₽';
+
+    return '${NumberFormat("#,###").format(fuelCharge).replaceAll(',', ' ')} ₽';
+  }
+
+  String get formattedServiceCharge {
+    if (serviceCharge < 1000) return '${serviceCharge.toString()} ₽';
+
+    return '${NumberFormat("#,###").format(serviceCharge).replaceAll(',', ' ')} ₽';
+  }
+
+  String get formattedFullPrice {
+    final price = tourPrice + fuelCharge + serviceCharge;
+    if (price < 1000) return '${price.toString()} ₽';
+
+    return '${NumberFormat("#,###").format(price).replaceAll(',', ' ')} ₽';
   }
 }

@@ -34,7 +34,7 @@ class HotelDTO {
   Map<String, dynamic> toJson() => _$HotelDTOToJson(this);
 
   String get formattedPrice {
-    if (minimalPrice < 1000) return minimalPrice.toString();
+    if (minimalPrice < 1000) return '${minimalPrice.toString()} ₽';
 
     return '${NumberFormat("#,###").format(minimalPrice).replaceAll(',', ' ')} ₽';
   }

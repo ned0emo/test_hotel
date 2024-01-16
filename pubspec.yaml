@@ -76,6 +76,9 @@ flutter:
     - assets/close_square.svg
     - assets/emoji_happy.svg
     - assets/tick_square.svg
+    - assets/arrow_up.svg
+    - assets/arrow_down.svg
+    - assets/plus.svg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
